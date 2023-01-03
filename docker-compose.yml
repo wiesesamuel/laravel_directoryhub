@@ -1,14 +1,8 @@
-# https://maruan.medium.com/how-to-install-and-set-up-laravel-8-with-docker-compose-on-ubuntu-20-04-58149fed3e2e
-
 version: "3.7"
-services:
 
-  #Laravel App
+services:
   app:
     build:
-      args:
-        user: lucy
-        uid: 1000
       context: ./
       dockerfile: Dockerfile
     image: laravel-app
@@ -18,8 +12,11 @@ services:
       - ./:/var/www
     networks:
       - mynetwork
-
-  #Nginx Service
+    depends_on:
+      - db
+    #command: bash -c "composer install --no-dev --optimize-autoloader &&
+          #php artisan key:generate &&
+          #php artisan migrate --seed"
   nginx:
     image: nginx:alpine
     restart: unless-stopped
@@ -30,8 +27,7 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d/
     networks:
       - mynetwork
-
-  #MySql Service
+  # MySQL Service
   db:
     image: mysql:8
     restart: unless-stopped
@@ -40,6 +36,8 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_USER: ${DB_USERNAME}
+    volumes:
+      - mysql-data:/var/lib/mysql
     networks:
       - mynetwork
 
@@ -47,3 +45,5 @@ networks:
   mynetwork:
     driver: bridge
 
+volumes:
+  mysql-data:
