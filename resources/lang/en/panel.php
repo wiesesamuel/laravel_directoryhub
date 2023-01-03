@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'Business Directory',
+    'site_title' => 'Midwife Finder',
 ];

@@ -5,7 +5,7 @@
 				<nav class="navbar navbar-expand-lg  navigation">
 					<a class="navbar-brand" href="/">
 						<!-- <img src="/images/logo.png" alt=""> -->
-                        <h3>Business Directory</h3>
+                        <h3>{{ trans('panel.site_title') }}</h3>
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>

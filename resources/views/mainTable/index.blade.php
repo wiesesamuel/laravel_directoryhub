@@ -13,8 +13,8 @@
 			<div class="col-md-12">
 				<!-- Header Contetnt -->
 				<div class="content-block">
-					<h1>Bussiness Directory</h1>
-					<p>Find Millions of Bussinesses<br> Listed here everyday</p>
+					<h1>{{ trans('mainpage.main_title') }}</h1>
+					<p>{!! trans('mainpage.sub_title') !!}</p>
 				</div>
 				<!-- Advance Search -->
 				<div class="advance-search">
@@ -22,7 +22,8 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <input type="text" name="search" value="{{ old('search') }}" class="form-control" placeholder="Search company" />
+                                <input type="text" name="search" value="{{ old('search') }}" class="form-control"
+                                       placeholder="{{ trans('mainpage.placeholder_main_search') }}" />
                                 <p class="help-block"></p>
                                 @if($errors->has('name'))
                                     <p class="help-block">
@@ -31,7 +32,7 @@
                                 @endif
                             </div>
                             <div class="form-group col-md-3">
-                                <select name="categories" class="form-control form-control-lg" placeholder="Category">
+                                <select name="categories" class="form-control form-control-lg" placeholder="{{ trans('mainpage.placeholder_main_dropdown') }}">
                                     @foreach ($search_categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
@@ -44,7 +45,7 @@
                                 @endif
                             </div>
                             <div class="form-group col-md-3">
-                                <select name="city_id" class="form-control form-control-lg" placeholder="City">
+                                <select name="city_id" class="form-control form-control-lg" placeholder="{{ trans('mainpage.placeholder_sub_dropdown') }}">
                                     @foreach ($search_cities as $city)
                                         <option value="{{ $city->id }}">{{ $city->name }}</option>
                                     @endforeach
@@ -60,18 +61,35 @@
                             <div class="form-group col-md-2">
                                 <button type="submit"
                                         class="btn btn-main">
-                                        Search Now
+                                    {{ trans('mainpage.main_search') }}
                                 </button>
                             </div>
+
                         </div>
 
+                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <a href="#" id="advanced-search-link"><i class="fas fa-angle-down"></i> {{ trans('mainpage.advanced_search') }}</a>
+                                <div id="advanced-search" style="display:none;">
+                                    text
+                                    <!-- Add your advanced search fields here -->
+                                </div>
+                            </div>
+                        </div>
                     </form>
+                    <script>
+                        $('#advanced-search-link').click(function(e) {
+                            e.preventDefault();
+                            $('#advanced-search').toggle();
+                        });
+                    </script>
 
-				</div>
-
-			</div>
-		</div>
+                </div>
+            </div>
+        </div>
 	</div>
+
 	<!-- Container End -->
 </section>
 
@@ -87,8 +105,8 @@
 			<div class="col-12">
 				<!-- Section title -->
 				<div class="section-title">
-					<h2>All Categories</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, provident!</p>
+					<h2>{{ trans('mainpage.category_title') }}</h2>
+					<p>{!! trans('mainpage.category_sub_title') !!}</p>
 				</div>
                 <div class="row">
                     @foreach ($categories_all->take(8) as $category_all)

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 class Company extends Model implements HasMedia
 {
     use SoftDeletes, InteractsWithMedia;
+    use HasFactory;
 
     public $table = 'companies';
 
@@ -45,7 +47,7 @@ class Company extends Model implements HasMedia
 
     public function city()
     {
-        return $this->belongsTo(City::class, 'city_id');
+        return $this->belongsTo(City::class);
     }
 
     public function categories()

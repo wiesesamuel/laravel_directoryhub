@@ -1,12 +1,13 @@
 <?php
+App::setLocale('de');
 Route::get('/', 'HomePageController@index');
 Route::get('search', 'HomePageController@table')->name('search');
 Route::get('categories/{category}', 'HomePageController@category')->name('category');
 Route::get('companies/{company}', 'HomePageController@company')->name('company');
- 
+
 Route::redirect('/home', '/admin');
 Auth::routes(['register' => false]);
- 
+
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
     // Permissions
