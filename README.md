@@ -16,3 +16,17 @@ Basically, feel free to use and re-use any way you want.
 
 ---
 
+```
+mysql -e "
+CREATE USER 'directoryhub'@'localhost' IDENTIFIED BY 'xxxxxxxxxxxxxxxxxxxx'; 
+" &&
+mysql -e "
+CREATE DATABASE directoryhub;
+" &&
+mysql -e "
+GRANT ALL PRIVILEGES ON directoryhub.* TO 'directoryhub'@'localhost' WITH GRANT OPTION;
+" &&
+mysql -e "
+FLUSH PRIVILEGES;
+"
+```
