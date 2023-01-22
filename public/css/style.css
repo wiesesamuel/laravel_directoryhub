@@ -635,7 +635,7 @@ ul.pagination .active a {
 }
 
 .bg-1 {
-  background: url("../images/home/bus.jpg");
+  background: url("../images/home/bus.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
