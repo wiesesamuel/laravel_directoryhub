@@ -2,7 +2,7 @@
 
 return [
     'main_title' => 'Geburtenhilfe',
-    'sub_title' => 'Finde auch du deine Hilfe <br> umbruch',
+    'sub_title' => 'Finde auch du deine Hebamme.',
 
     'placeholder_main_search' => 'Name',
     'placeholder_main_dropdown' => 'Kategorie',
