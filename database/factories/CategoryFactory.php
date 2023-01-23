@@ -15,6 +15,7 @@ class CategoryFactory extends Factory
     {
         return [
             'name' => $this->faker->jobTitle,
+            'description' => implode($this->faker->sentences),
             'icon' => $this->faker->image(),//numberBetween(0,8),
         ];
     }

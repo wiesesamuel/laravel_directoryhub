@@ -73,72 +73,82 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6 margin-30px-bottom xs-margin-20px-bottom">
-                <div class="services-block-three">
-                    <a href="javascript:void(0)">
-                        <div class="padding-15px-bottom">
-                            <i class="fa fa-eercast"></i>
-                        </div>
-                        <h4>Branding Design</h4>
-                        <p class="xs-font-size13 xs-line-height-22">Exhaustive technology of implementing multi purpose projects is putting your project</p>
-                    </a>
+            @foreach ($categories_all as $category)
+                <div class="services-block-three col-lg-4 col-md-6 sm-margin-30px-bottom xs-margin-20px-bottom">
+                    <div class="services-block-three">
+                        <a href="{{ route('category', [$category->id]) }}">
+                            <div class="padding-15px-bottom">
+                                <i class="{{ $category->icon }} icon-bg-{{ $category->id }}"></i>
+                            </div>
+                            <h4>
+                                {{ $category->name }}
+                                <p style="display: inline">
+                                    ({{ $category->companies->count() }})
+                                </p>
+                            </h4>
+                            <p class="xs-font-size13 xs-line-height-22">
+                                {{ $category->description }}
+                            </p>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 margin-30px-bottom xs-margin-20px-bottom">
-                <div class="services-block-three">
-                    <a href="javascript:void(0)">
-                        <div class="padding-15px-bottom">
-                            <i class="fa fa-snowflake-o"></i>
-                        </div>
-                        <h4>Bootstrap Framework</h4>
-                        <p class="xs-font-size13 xs-line-height-22">Exhaustive technology of implementing multi purpose projects is putting your project successful.</p>
-                    </a>
-                </div>
-            </div>
-            <div class="services-block-three col-lg-4 col-md-6 margin-30px-bottom xs-margin-20px-bottom">
-                <div class="services-block-three">
-                    <a href="javascript:void(0)">
-                        <div class="padding-15px-bottom">
-                            <i class="fa fa-braille"></i>
-                        </div>
-                        <h4>Creative Ideas</h4>
-                        <p class="xs-font-size13 xs-line-height-22">Exhaustive technology of implementing multi purpose projects is putting your project successful.</p>
-                    </a>
-                </div>
-            </div>
-            <div class="services-block-three col-lg-4 col-md-6 sm-margin-30px-bottom xs-margin-20px-bottom">
-                <div class="services-block-three">
-                    <a href="javascript:void(0)">
-                        <div class="padding-15px-bottom">
-                            <i class="fa fa-diamond"></i>
-                        </div>
-                        <h4>100% Responsive Layout</h4>
-                        <p class="xs-font-size13 xs-line-height-22">Exhaustive technology of implementing multi purpose projects is putting your project successful.</p>
-                    </a>
-                </div>
-            </div>
-            <div class="services-block-three col-lg-4 col-md-6 xs-margin-20px-bottom">
-                <div class="services-block-three">
-                    <a href="javascript:void(0)">
-                        <div class="padding-15px-bottom">
-                            <i class="fa fa-object-ungroup"></i>
-                        </div>
-                        <h4>Easy page builder</h4>
-                        <p class="xs-font-size13 xs-line-height-22">Exhaustive technology of implementing multi purpose projects is putting your project successful.</p>
-                    </a>
-                </div>
-            </div>
-            <div class="services-block-three col-lg-4 col-md-6">
-                <div class="services-block-three">
-                    <a href="javascript:void(0)">
-                        <div class="padding-15px-bottom">
-                            <i class="fa fa-paper-plane-o"></i>
-                        </div>
-                        <h4>Clean Modern Code</h4>
-                        <p class="xs-font-size13 xs-line-height-22">Exhaustive technology of implementing multi purpose projects is putting your project successful.</p>
-                    </a>
-                </div>
-            </div>
+            @endforeach
+
+{{--            <div class="col-lg-4 col-md-6 margin-30px-bottom xs-margin-20px-bottom">--}}
+{{--                <div class="services-block-three">--}}
+{{--                    <a href="javascript:void(0)">--}}
+{{--                        <div class="padding-15px-bottom">--}}
+{{--                            <i class="fa fa-eercast"></i>--}}
+{{--                        </div>--}}
+{{--                        <h4>Branding Design</h4>--}}
+{{--                        <p class="xs-font-size13 xs-line-height-22">Exhaustive technology of implementing multi purpose projects is putting your project</p>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-md-6 margin-30px-bottom xs-margin-20px-bottom">--}}
+{{--                <div class="services-block-three">--}}
+{{--                    <a href="javascript:void(0)">--}}
+{{--                        <div class="padding-15px-bottom">--}}
+{{--                            <i class="fa fa-snowflake-o"></i>--}}
+{{--                        </div>--}}
+{{--                        <h4>Bootstrap Framework</h4>--}}
+{{--                        <p class="xs-font-size13 xs-line-height-22">Exhaustive technology of implementing multi purpose projects is putting your project successful.</p>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="services-block-three col-lg-4 col-md-6 margin-30px-bottom xs-margin-20px-bottom">--}}
+{{--                <div class="services-block-three">--}}
+{{--                    <a href="javascript:void(0)">--}}
+{{--                        <div class="padding-15px-bottom">--}}
+{{--                            <i class="fa fa-braille"></i>--}}
+{{--                        </div>--}}
+{{--                        <h4>Creative Ideas</h4>--}}
+{{--                        <p class="xs-font-size13 xs-line-height-22">Exhaustive technology of implementing multi purpose projects is putting your project successful.</p>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="services-block-three col-lg-4 col-md-6 xs-margin-20px-bottom">--}}
+{{--                <div class="services-block-three">--}}
+{{--                    <a href="javascript:void(0)">--}}
+{{--                        <div class="padding-15px-bottom">--}}
+{{--                            <i class="fa fa-object-ungroup"></i>--}}
+{{--                        </div>--}}
+{{--                        <h4>Easy page builder</h4>--}}
+{{--                        <p class="xs-font-size13 xs-line-height-22">Exhaustive technology of implementing multi purpose projects is putting your project successful.</p>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="services-block-three col-lg-4 col-md-6">--}}
+{{--                <div class="services-block-three">--}}
+{{--                    <a href="javascript:void(0)">--}}
+{{--                        <div class="padding-15px-bottom">--}}
+{{--                            <i class="fa fa-paper-plane-o"></i>--}}
+{{--                        </div>--}}
+{{--                        <h4>Clean Modern Code</h4>--}}
+{{--                        <p class="xs-font-size13 xs-line-height-22">Exhaustive technology of implementing multi purpose projects is putting your project successful.</p>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
             <!-- end -->
         </div>
     </div>

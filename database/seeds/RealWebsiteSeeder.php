@@ -14,26 +14,32 @@ class RealWebsiteSeeder extends Seeder
             [
                 'name'=>'Klassisch',
                 'type' => 'kind',
+                'description' => 'Satz'
             ],
             [
                 'name'=>'Naturheilkunde',
                 'type' => 'kind',
+                'description' => 'Satz'
             ],
             [
                 'name'=>'Risikoschwangerschaft',
                 'type' => 'kind',
+                'description' => 'Satz'
             ],
             [
                 'name'=>'Klinik',
                 'type' => 'location',
+                'description' => 'Satz'
             ],
             [
                 'name'=>'Geburtenhaus',
                 'type' => 'location',
+                'description' => 'Satz'
             ],
             [
                 'name'=>'Hausgeburt',
                 'type' => 'location',
+                'description' => 'Satz'
             ],
         ]);
         City::insert([

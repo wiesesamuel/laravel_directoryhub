@@ -45,7 +45,7 @@
                     <!-- Category Grid -->
                     <div class="row">
 {{--                        @include('components.category_list', array('categories_all' => $categories_all->take(8)))--}}
-                        @include('components.category_grid')
+                        @include('components.category_grid', array('categories_all' => $categories_all->take(8)))
                     </div>
                 </div>
             </div>
