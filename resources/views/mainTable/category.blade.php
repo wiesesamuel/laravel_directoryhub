@@ -7,56 +7,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<!-- Advance Search -->
-				<div class="advance-search">
-                    <form action="{{ route('search') }}" method="GET">
-
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <input type="text" name="search" value="{{ old('search') }}" class="form-control" placeholder="Search company" />
-                                <p class="help-block"></p>
-                                @if($errors->has('name'))
-                                    <p class="help-block">
-                                        {{ $errors->first('name') }}
-                                    </p>
-                                @endif
-                            </div>
-                            <div class="form-group col-md-3">
-                                <select name="categories" class="form-control form-control-lg" placeholder="Category">
-                                    @foreach ($search_categories as $search_category)
-                                        <option value="{{ $search_category->id }}">{{ $search_category->name }}</option>
-                                    @endforeach
-                                </select>
-                                <p class="help-block"></p>
-                                @if($errors->has('categories'))
-                                    <p class="help-block">
-                                        {{ $errors->first('categories') }}
-                                    </p>
-                                @endif
-                            </div>
-                            <div class="form-group col-md-3">
-                                <select name="city_id" class="form-control form-control-lg" placeholder="City">
-                                    @foreach ($search_cities as $city)
-                                        <option value="{{ $city->id }}">{{ $city->name }}</option>
-                                    @endforeach
-                                </select>
-                                <p class="help-block"></p>
-                                @if($errors->has('city_id'))
-                                    <p class="help-block">
-                                        {{ $errors->first('city_id') }}
-                                    </p>
-                                @endif
-                            </div>
-
-                            <div class="form-group col-md-2">
-                                <button type="submit"
-                                        class="btn btn-main">
-                                    Search Now
-                                </button>
-                            </div>
-                        </div>
-
-                    </form>
-				</div>
+                @include('components.advanced_search', array('search_categories' => $search_categories, 'search_cities' => $search_cities))
 			</div>
 		</div>
 	</div>
@@ -85,22 +36,22 @@
                     </div>
 				</div>
 			</div>
-           
+
 			<div class="col-md-9">
 				<div class="product-grid-list">
 					<div class="row mt-30">
-                         
+
                         @foreach ($companies as $singleCompany)
                             <div class="col-sm-12 col-lg-4 col-md-6">
-                            
+
                                 <!-- product card -->
-                        
+
                                 <div class="product-item bg-light">
                                     <div class="card">
                                         <div class="thumb-content">
                                         @if($singleCompany->logo)<a href="{{ route('company', [$singleCompany->id]) }}"><img class="card-img-top img-fluid" src="{{ asset(env('UPLOAD_PATH').'/thumb/' . $singleCompany->logo) }}"/></a>@endif
                                         </div>
-                                        <div class="card-body"> 
+                                        <div class="card-body">
                                             <h4 class="card-title"><a href="{{ route('company', [$singleCompany->id]) }}">{{$singleCompany->name}}</a></h4>
                                             @foreach ($singleCompany->categories as $singleCategories)
                                                 <ul class="list-inline product-meta">
@@ -117,7 +68,7 @@
                         @endforeach
 					</div>
 				</div>
-                
+
                 {{ $companies->render() }}
 			</div>
 		</div>

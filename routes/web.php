@@ -2,6 +2,7 @@
 App::setLocale('de');
 Route::get('/', 'HomePageController@index');
 Route::get('search', 'HomePageController@table')->name('search');
+Route::get('message', 'HomePageController@message')->name('message');
 Route::get('categories/{category}', 'HomePageController@category')->name('category');
 Route::get('companies/{company}', 'HomePageController@company')->name('company');
 

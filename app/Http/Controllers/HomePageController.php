@@ -10,7 +10,7 @@ class HomePageController extends Controller
 {
 
     public function index()
-    { 
+    {
         return view('mainTable.index');
     }
 
@@ -26,7 +26,7 @@ class HomePageController extends Controller
         $companies = Company::join('category_company', 'companies.id', '=', 'category_company.company_id')
             ->where('category_id', $category->id)
             ->paginate(9);
- 
+
         return view('mainTable.category', compact('companies', 'category'));
     }
 
@@ -35,4 +35,8 @@ class HomePageController extends Controller
         return view('mainTable.company', compact ('company'));
     }
 
+    public function message()
+    {
+        return view('mainTable.message');
+    }
 }

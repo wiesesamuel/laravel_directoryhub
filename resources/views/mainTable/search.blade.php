@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="search-result bg-gray">
-                    <h2><a href="#">Nachricht schreiben</a></h2>
+                    <h2><a href="{{ route('message') }}">Nachricht schreiben</a></h2>
                 </div>
             </div>
         </div>
